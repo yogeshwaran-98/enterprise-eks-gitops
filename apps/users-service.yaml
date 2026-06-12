@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: users-service
+  namespace: argocd
+
+spec:
+  project: default
+
+  sources:
+    - repoURL: https://github.com/yogeshwaran-98/enterprise-eks-platform.git
+      targetRevision: main
+      path: helm/users-service
+
+      helm:
+        valueFiles:
+          - $values/environments/production/users-service-values.yaml
+
+    - repoURL: https://github.com/yogeshwaran-98/enterprise-eks-gitops.git
+      targetRevision: main
+      ref: values
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: enterprise
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -15,7 +15,7 @@ spec:
 
       helm:
         valueFiles:
-          - $values/environments/production/inventory-values.yaml
+          - $values/environments/production/inventory-service-values.yaml
 
     - repoURL: https://github.com/yogeshwaran-98/enterprise-eks-gitops.git
       targetRevision: main

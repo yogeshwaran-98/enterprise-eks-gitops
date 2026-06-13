@@ -1,18 +1,14 @@
 replicaCount: 2
-
 image:
   repository: 106551436513.dkr.ecr.us-east-1.amazonaws.com/payments-service
-  tag: "latest"
-
+  tag: "c1655c2605196cfba31b7dc3f708b9f582131244"
 service:
   type: ClusterIP
   port: 80
-
 resources:
   requests:
     cpu: 100m
     memory: 128Mi
-
   limits:
     cpu: 500m
     memory: 512Mi

@@ -1,6 +1,6 @@
 replicaCount: 2
 image:
-  repository: 106551436513.dkr.ecr.us-east-1.amazonaws.com/orders-service
+  repository: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/orders-service
   tag: "c1655c2605196cfba31b7dc3f708b9f582131244"
 service:
   type: ClusterIP

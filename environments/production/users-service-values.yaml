@@ -1,18 +1,14 @@
 replicaCount: 2
-
 image:
   repository: 106551436513.dkr.ecr.us-east-1.amazonaws.com/users-service
-  tag: "latest"
-
+  tag: "e7e8a6e6efb621e1d82fd67b4396dcacf2f0c5a7"
 service:
   type: ClusterIP
   port: 80
-
 resources:
   requests:
     cpu: 100m
     memory: 128Mi
-
   limits:
     cpu: 500m
     memory: 512Mi

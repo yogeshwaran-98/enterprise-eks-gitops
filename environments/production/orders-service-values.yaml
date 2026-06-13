@@ -12,3 +12,9 @@ resources:
   limits:
     cpu: 500m
     memory: 512Mi
+  env:
+  - name: OTEL_SERVICE_NAME
+    value: orders-service
+
+  - name: OTEL_EXPORTER_OTLP_ENDPOINT
+    value: http://otel-collector.observability.svc.cluster.local:4318

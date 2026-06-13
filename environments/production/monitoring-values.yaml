@@ -1,4 +1,6 @@
 grafana:
+  service:
+    type: ClusterIP
   adminPassword: admin123
 
 prometheus:

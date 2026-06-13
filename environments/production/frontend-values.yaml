@@ -1,18 +1,14 @@
 replicaCount: 2
-
 image:
   repository: 106551436513.dkr.ecr.us-east-1.amazonaws.com/frontend
-  tag: "latest"
-
+  tag: "14dbb6e702350b5ee05d5360783e6b84f95eab35"
 service:
   type: LoadBalancer
   port: 80
-
 resources:
   requests:
     cpu: 100m
     memory: 128Mi
-
   limits:
     cpu: 500m
     memory: 512Mi

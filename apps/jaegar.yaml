@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: jaeger
+  namespace: argocd
+
+spec:
+  project: default
+
+  sources:
+    - repoURL: https://jaegertracing.github.io/helm-charts
+      chart: jaeger
+      targetRevision: 3.4.1
+
+      helm:
+        valueFiles:
+          - $values/environments/production/jaeger-values.yaml
+
+    - repoURL: https://github.com/yogeshwaran-98/enterprise-eks-gitops.git
+      targetRevision: main
+      ref: values
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: observability
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true

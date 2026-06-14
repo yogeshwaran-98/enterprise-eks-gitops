@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: otel-config
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/yogeshwaran-98/enterprise-eks-gitops.git
+    targetRevision: main
+    path: manifests
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: observability
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

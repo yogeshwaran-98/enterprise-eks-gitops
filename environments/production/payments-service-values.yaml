@@ -1,6 +1,6 @@
 replicaCount: 2
 image:
-  repository: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/payments-service
+  repository: 106551436513.dkr.ecr.us-east-1.amazonaws.com/payments-service
   tag: "c1655c2605196cfba31b7dc3f708b9f582131244"
 service:
   type: ClusterIP

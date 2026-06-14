@@ -1,7 +1,7 @@
 replicaCount: 2
 image:
   repository: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/users-service
-  tag: "9c6107ab397d81e31a6e7e7a918a2f8c57461723"
+  tag: "3971769b653989a68703a7d59d4a31d9948e246e"
 service:
   type: ClusterIP
   port: 80
@@ -13,15 +13,12 @@ resources:
     cpu: 500m
     memory: 512Mi
 version: v1
-
 canary:
   enabled: false
   replicaCount: 1
   tag: ""
-  
 env:
   - name: OTEL_SERVICE_NAME
     value: users-service
-
   - name: OTEL_EXPORTER_OTLP_ENDPOINT
     value: http://otel-collector.observability.svc.cluster.local:4318

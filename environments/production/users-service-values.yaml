@@ -12,6 +12,13 @@ resources:
   limits:
     cpu: 500m
     memory: 512Mi
+version: v1
+
+canary:
+  enabled: false
+  replicaCount: 1
+  tag: ""
+  
 env:
   - name: OTEL_SERVICE_NAME
     value: users-service
